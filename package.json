@@ -1,0 +1,41 @@
+{
+  "name": "gtech-catalog-api",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "format": "prettier --write src tests scripts migrations docs/openapi.js package.json compose.yaml README.md",
+    "format:check": "prettier --check src tests scripts migrations docs/openapi.js package.json compose.yaml README.md",
+    "dev": "nodemon src/server.js",
+    "db:migrate": "node scripts/migrate.js up",
+    "db:undo": "node scripts/migrate.js down",
+    "test": "jest --runInBand",
+    "test:unit": "jest --runInBand tests/unit",
+    "test:integration": "jest --runInBand tests/integration"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7",
+    "sharp": "^0.34.5",
+    "swagger-ui-express": "^5.0.1",
+    "umzug": "^3.8.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.10.1",
+    "supertest": "^7.1.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 30000
+  }
+}
